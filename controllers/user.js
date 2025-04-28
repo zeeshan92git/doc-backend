@@ -9,7 +9,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import doctorModel from '../models/doctor.js';
 import appointmentModel from '../models/appointment.js';
 import Stripe from 'stripe';
-console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
+//console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //user registration
