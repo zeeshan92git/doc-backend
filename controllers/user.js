@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config({ path: './.env' });
+
 import validator from 'validator';
 import bcrypt from 'bcrypt';
 import userModel from "../models/user.js";
@@ -6,8 +9,8 @@ import { v2 as cloudinary } from 'cloudinary';
 import doctorModel from '../models/doctor.js';
 import appointmentModel from '../models/appointment.js';
 import Stripe from 'stripe';
+console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 
 //user registration
 const registerUser = async (req, res) => {

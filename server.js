@@ -1,13 +1,15 @@
 import express from "express";
 import cors from 'cors';
 import dotenv from "dotenv";
+dotenv.config();
+
 import connectdb from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/admin.js";
 import doctorRouter from "./routes/doctor.js";
 import userRouter from "./routes/user.js";
 import Email_Router from "./routes/email.js";
-dotenv.config();
+
 
 //app config
 const app = express();
