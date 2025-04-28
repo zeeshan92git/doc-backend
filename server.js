@@ -1,0 +1,39 @@
+import express from "express";
+import cors from 'cors';
+import dotenv from "dotenv";
+import connectdb from "./config/mongodb.js";
+import connectCloudinary from "./config/cloudinary.js";
+import adminRouter from "./routes/admin.js";
+import doctorRouter from "./routes/doctor.js";
+import userRouter from "./routes/user.js";
+import Email_Router from "./routes/email.js";
+dotenv.config();
+
+//app config
+const app = express();
+const port = process.env.PORT || 5000;
+const host = process.env.HOST || 'localhost';
+connectdb();
+connectCloudinary();
+//middlewares
+app.use(express.json());    // req get pass by this method
+
+app.use(cors({
+    origin:[ process.env.FRONTEND_ADMIN_URI , process.env.FRONTEND_CLIENT_URI], 
+  }));    
+
+
+//api end points
+app.use('/api/admin',adminRouter);
+app.use('/api/doctor',doctorRouter);
+app.use('/api/user',userRouter);
+app.use('/api/email',Email_Router);
+
+app.get('/' , (req,res)=>{
+    res.send('API WORKING GREATLY');
+});
+
+app.listen(port,() => {
+    console.log(`Server running on ${host}:${port}`);
+});
+
