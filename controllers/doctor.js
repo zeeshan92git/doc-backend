@@ -149,9 +149,7 @@ const docDashboard = async (req, res) => {
     }
 };
 
-
 // doc-profile
-
 const docProfile = async (req, res) => {
     try {
 
