@@ -21,7 +21,7 @@ connectCloudinary();
 app.use(express.json());    // req get pass by this method
 
 app.use(cors({
-    origin:[ process.env.FRONTEND_ADMIN_URI , process.env.FRONTEND_CLIENT_URI], 
+    origin:[ process.env.FRONTEND_ADMIN_URI , process.env.FRONTEND_CLIENT_URI , process.env.AL_SHIFA_URI], 
   }));    
 
 
