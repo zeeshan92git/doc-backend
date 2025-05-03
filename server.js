@@ -20,22 +20,30 @@ connectCloudinary();
 //middlewares
 app.use(express.json());    // req get pass by this method
 
+
+const allowedOrigins = [
+    process.env.FRONTEND_CLIENT_URI,
+    process.env.FRONTEND_ADMIN_URI,
+    process.env.AL_SHIFA_URI
+].filter(Boolean);
+
 app.use(cors({
-    origin:[ process.env.FRONTEND_ADMIN_URI , process.env.FRONTEND_CLIENT_URI , process.env.AL_SHIFA_URI], 
-  }));    
+    origin: allowedOrigins
+}));
+
 
 
 //api end points
-app.use('/api/admin',adminRouter);
-app.use('/api/doctor',doctorRouter);
-app.use('/api/user',userRouter);
-app.use('/api/email',Email_Router);
+app.use('/api/admin', adminRouter);
+app.use('/api/doctor', doctorRouter);
+app.use('/api/user', userRouter);
+app.use('/api/email', Email_Router);
 
-app.get('/' , (req,res)=>{
+app.get('/', (req, res) => {
     res.send('API WORKING GREATLY');
 });
 
-app.listen(port,() => {
+app.listen(port, () => {
     console.log(`Server running on ${host}:${port}`);
 });
 
