@@ -18,7 +18,7 @@ const host = process.env.HOST || 'localhost';
 connectdb();
 connectCloudinary();
 //middlewares
-app.use(express.json());    // req get pass by this method
+app.use(express.json());   
 
 
 const allowedOrigins = [
