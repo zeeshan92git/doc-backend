@@ -190,6 +190,8 @@ const cancelAppointment = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 };
+
+
 //making payment via Stripe
 const paymentViaStripe = async (req, res) => {
 
@@ -214,6 +216,8 @@ const paymentViaStripe = async (req, res) => {
         });
     }
 };
+
+
 const updatePaymentStatus = async (req,res) => {
     const {appointmentId , userId} = req.body;
     try{

@@ -7,7 +7,6 @@ import { v2 as cloudinary } from 'cloudinary'; // Import Cloudinary
 import jwt from 'jsonwebtoken';
 
 // adding doctor
-
 const addDoctor = async (req, res) => {
 
     try {
@@ -100,7 +99,6 @@ const getAllDoctors = async (req, res) => {
 }
 
 // get all  booked appointments data
-
 const getAllAppointments = async (req, res) => {
     try {
         const appointmets = await appointmentModel.find({});
@@ -115,7 +113,6 @@ const getAllAppointments = async (req, res) => {
 };
 
 // to cancel appointment
-
 const Appointmentcancel = async  (req, res) => {
     try {
         const { appointmentId } = req.body;
@@ -140,7 +137,6 @@ const Appointmentcancel = async  (req, res) => {
 };
 
 //dashBoard data
-
 const adminDashboard = async (req,res) => {
     try{
         const doctor = await doctorModel.find({});
